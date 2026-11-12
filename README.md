@@ -20,11 +20,43 @@ Las verificaciones son una **selección de controles de buenas prácticas alinea
 
 ## 2. Topología de red
 
-![Diagrama lógico de GNS3](diagramas/topologia-logica.png)
+**Topología final de GNS3 — Asignación #4:**
 
-**Topología real de GNS3:**
+![Topología final de GNS3](evidencias/00-topologia-gns3.png)
 
-![Captura de topología](evidencias/00-topologia-gns3.png)
+### Diagrama de conexiones y administración
+
+```mermaid
+flowchart TB
+    R1["R1-2174 · Cisco IOS 15<br/>Fa0/0: 10.21.75.1/30"]
+    FGT["FGT-2174 · FortiGate 7.0.9<br/>port1: 10.21.75.2/30<br/>port2: 10.21.76.1/24<br/>port3: 10.21.74.2/24"]
+    SW["SW-2174<br/>Switch Ethernet L2"]
+    UB["Ubuntu · Auditor Python/Paramiko<br/>ens4: 10.21.76.10/24<br/>ens3: 10.21.74.20/24"]
+    C1["Cloud1 · GNS3 VM<br/>Red de administración"]
+    C2["Cloud2 · GNS3 VM<br/>Red de administración"]
+    PC["PC Windows · PuTTY / navegador<br/>VMnet1: 10.21.74.3/24"]
+
+    R1 ---|"10.21.75.0/30 · Fa0/0 ↔ port1"| FGT
+    FGT ---|"port2 · 10.21.76.0/24"| SW
+    SW ---|"e1 ↔ e1 / ens4"| UB
+    FGT -.-|"port3 ↔ eth0"| C2
+    UB -.-|"ens3 / e0 ↔ eth0"| C1
+    PC -. "10.21.74.0/24 · acceso a GUI y SSH" .- C1
+    PC -. "10.21.74.0/24 · acceso GUI/SSH FortiGate" .- C2
+
+    classDef router fill:#24415e,stroke:#91bfe5,color:#ffffff;
+    classDef firewall fill:#853a3a,stroke:#f5b1a9,color:#ffffff;
+    classDef node fill:#293d35,stroke:#8bc7a5,color:#ffffff;
+    classDef cloud fill:#34393f,stroke:#a0adbb,color:#ffffff;
+    class R1 router;
+    class FGT firewall;
+    class SW,UB,PC node;
+    class C1,C2 cloud;
+```
+
+**Lectura del diagrama:** líneas continuas = enlaces de la LAN y del router; líneas punteadas = conexión administrativa mediante Clouds de GNS3 VM. Ubuntu audita al router atravesando FortiGate, y Windows accede a Ubuntu y al firewall por la red de administración. **No se utiliza RADIUS ni Windows Server en esta práctica.**
+
+[Ver diagrama lógico complementario](diagramas/topologia-logica.png)
 
 El enlace R1–FGT usa `10.21.75.0/30`; la LAN protegida usa `10.21.76.0/24`; la administración desde Windows usa `10.21.74.0/24`. Los dos nodos Cloud se ejecutan en GNS3 VM. Para el inventario detallado, ver [direccionamiento final](configuraciones/direccionamiento-final.md).
 

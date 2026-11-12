@@ -1,0 +1,20 @@
+# RESUMEN DOCUMENTAL - NO ES BACKUP RESTAURABLE
+# Fuente: salidas CLI verificadas en el laboratorio, sin secretos.
+# FortiGate-VM64-KVM FortiOS 7.0.9
+
+config system global
+    set admin-ssh-v1 disable
+    set admin-telnet disable
+    set admintimeout 5
+    set admin-lockout-threshold 3
+    set admin-https-ssl-versions tlsv1-2
+    set cli-audit-log enable
+    set login-timestamp enable
+end
+
+# Interfaces finales documentadas
+# port1 10.21.75.2/30: R1-2174
+# port2 10.21.76.1/24: SW-2174 / Ubuntu
+# port3 10.21.74.2/24: Cloud2 / Windows (administración)
+# NOTA: HTTP fue añadido después de la auditoría final para abrir la GUI.
+# Se debe retirar HTTP y utilizar HTTPS en un despliegue endurecido.

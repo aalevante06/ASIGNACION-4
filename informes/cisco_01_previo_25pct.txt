@@ -1,0 +1,25 @@
+SR-2174 | AUDITORIA DE HARDENING
+Fecha: 2026-11-12 18:26:53
+Equipo: R1-2174 (10.21.74.1)
+Referencia: seleccion de controles de seguridad para Cisco IOS 15
+Alcance: auditoria parcial, NO certificacion CIS
+=================================================================
+01. [CUMPLE] SSH version 2
+    Proposito: Mantener conexiones remotas mediante SSHv2.
+02. [CUMPLE] VTY solo SSH
+    Proposito: Impedir acceso Telnet y exigir autenticacion local.
+03. [NO CUMPLE] Timeout consola
+    Proposito: Cerrar sesiones inactivas de consola a los 5 minutos.
+04. [NO CUMPLE] Timeout auxiliar
+    Proposito: Cerrar sesiones inactivas AUX a los 5 minutos.
+05. [NO CUMPLE] Banner de advertencia
+    Proposito: Notificar el acceso restringido al equipo.
+06. [NO CUMPLE] Logging buffered
+    Proposito: Mantener eventos de seguridad en el buffer local.
+07. [NO CUMPLE] TCP keepalives entrada
+    Proposito: Detectar conexiones TCP entrantes interrumpidas.
+08. [NO CUMPLE] TCP keepalives salida
+    Proposito: Detectar conexiones TCP salientes interrumpidas.
+=================================================================
+Resultado: 2/8 controles (25.0%)
+Nota: validaciones sobre running-config; se requieren pruebas operativas adicionales.

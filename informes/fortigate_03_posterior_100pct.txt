@@ -1,0 +1,24 @@
+SR-2174 | AUDITORIA PARCIAL DE HARDENING - FORTIGATE
+Fecha: 2026-11-12T19:31:46
+Dispositivo: FGT-2174 | FortiOS 7.0.9 | IP: 10.21.74.2
+Alcance: ocho comprobaciones seleccionadas; NO es una certificación CIS.
+Nota: TLS saliente global no incluido: comando no admitido en esta VM.
+-----------------------------------------------------------------
+01. [CUMPLE] SSH v1 deshabilitado
+    Propósito: Evita el protocolo SSH obsoleto.
+02. [CUMPLE] Timeout administrativo <= 5 min
+    Propósito: Cierra sesiones inactivas.
+03. [CUMPLE] Bloqueo tras <= 3 fallos
+    Propósito: Limita intentos repetidos de inicio de sesión.
+04. [CUMPLE] HTTPS en interfaz administrativa
+    Propósito: Permite administración cifrada por port3.
+05. [CUMPLE] TLS para HTTPS >= 1.2
+    Propósito: No admite TLS 1.0/1.1 para la GUI.
+06. [CUMPLE] Telnet global deshabilitado
+    Propósito: Desactiva servicio administrativo inseguro.
+07. [CUMPLE] Registro de comandos CLI
+    Propósito: Registra acciones administrativas en eventos.
+08. [CUMPLE] Registro de hora de acceso
+    Propósito: Registra el momento de inicio de sesion administrativo.
+-----------------------------------------------------------------
+Resultado: 8/8 controles (100.0%)

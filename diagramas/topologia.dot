@@ -1,0 +1,19 @@
+digraph G {
+  graph [rankdir=LR, bgcolor="white", pad="0.35", nodesep="0.65", ranksep="0.95", fontname="Arial", label="SR-2174 | Topología de auditoría y hardening", labelloc=t, fontsize=21, fontcolor="#15283e"];
+  node [shape=box, style="rounded,filled", fontname="Arial", fontcolor="#193047", color="#c5d6df", fillcolor="#f1f7fa", penwidth=1.3, margin="0.16,0.12"];
+  edge [color="#4083a5", penwidth=2, fontname="Arial", fontsize=10, fontcolor="#334c65"];
+  router [label="R1-2174\nCisco IOS 15.2\nf0/0: 10.21.75.1/30",fillcolor="#dbeefa"];
+  fgt [label="FGT-2174\nFortiOS 7.0.9\nport1 10.21.75.2/30\nport2 10.21.76.1/24\nport3 10.21.74.2/24",fillcolor="#ffebe4",color="#eda68b"];
+  sw [label="SW-2174\nEthernet switch (GNS3)"];
+  ubuntu [label="UBUNTU\nens4: 10.21.76.10/24\nens3: 10.21.74.20/24",fillcolor="#e9f3e6"];
+  win [label="PC Windows\nVMnet1: 10.21.74.3/24",fillcolor="#edf0fb"];
+  cloud1 [label="Cloud1 (GNS3 VM)\nAdministración Ubuntu",shape=ellipse,fillcolor="#f2eff9"];
+  cloud2 [label="Cloud2 (GNS3 VM)\nAdministración FortiGate",shape=ellipse,fillcolor="#f2eff9"];
+  router -> fgt [label=" enlace punto a punto "];
+  fgt -> sw [label=" LAN port2/e0 "];
+  sw -> ubuntu [label=" e1/ens4 "];
+  ubuntu -> cloud1 [label=" e0/ens3 "];
+  fgt -> cloud2 [label=" port3 "];
+  cloud1 -> win [style=dashed,label="VMnet1"];
+  cloud2 -> win [style=dashed,label="VMnet1"];
+}

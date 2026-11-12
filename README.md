@@ -9,8 +9,7 @@
 
 </div>
 
-> 🎬 **VIDEO DEMOSTRATIVO:** [Añadir aquí el enlace al video antes de entregar](URL_DEL_VIDEO)  
-> El video debe mostrarse al principio del repositorio según la asignación. Sustituir `URL_DEL_VIDEO` por un enlace real.
+> 🎬 **VIDEO DEMOSTRATIVO:** [https://youtu.be/0L2F74t3yXY](URL_DEL_VIDEO)  
 
 ## 1. Propósito del laboratorio
 

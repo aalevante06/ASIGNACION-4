@@ -9,7 +9,7 @@
 
 </div>
 
-> 🎬 **VIDEO DEMOSTRATIVO:** [VIDEO]((https://youtu.be/0L2F74t3yXY))  
+> 🎬 **VIDEO DEMOSTRATIVO:** [https://youtu.be/0L2F74t3yXY)]((https://youtu.be/0L2F74t3yXY))  
 
 ## 1. Propósito del laboratorio
 
